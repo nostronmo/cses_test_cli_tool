@@ -35,7 +35,7 @@ Copy the generated JAR (target/ctooltester-version.jar) into your problem workin
 📂 Expected Directory Structure
 Place the JAR file or symlink it in your project root alongside your solution and test folder:
 
-Plaintext
+``` Plaintext
 my_cses_project/
 ├── ctooltester.jar          # The test runner JAR
 ├── main.c                   # Your source code (or main.go, main.rs, etc.)
@@ -46,16 +46,18 @@ my_cses_project/
     ├── 1.out
     ├── 2.in
     └── 2.out
+```
 💻 Usage
 1. Zero-Argument Execution (Auto-Detect)
 If your folder is named weird_algo, your binary is in ./weird_algo or build/weird_algo, and your tests are in a tests/ folder, simply run:
 
-Bash
+``` Bash
 java -jar ctooltester-v1.301.jar
 2. Custom Arguments
 You can explicitly pass an executable path, test directory, or timeout limit:
+```
 
-Bash
+``` Bash
 java -jar ctooltester-v1.301.jar -e build/weird_algo -td tests -tm 2s
 ⚙️ CLI Options Reference
 Option	Alias	Description	Default
@@ -64,6 +66,8 @@ Option	Alias	Description	Default
 --tm, --time	-tm, -time	Max execution timeout duration (e.g., 500ms, 5s, 1m).	5s
 -h, --help	-h, --h	Display help menu and usage instructions.	—
 -v, --version	-v, --version	Display application version.	—
+```
+
 🛠️ Tech Stack
 Java 17+
 
