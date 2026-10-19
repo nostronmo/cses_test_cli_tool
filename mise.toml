@@ -1,0 +1,39 @@
+[tools]
+maven = "latest"
+
+[env]
+_.file = ".env"
+
+[tasks.test]
+alias = "qa"
+description = "Run Test"
+run = "mvn clean test"
+
+[tasks.build]
+alias = "qs"
+description = "Build the Project Image"
+run = "mvn clean package -DskipTests"
+
+[tasks.run]
+alias = "qw"
+description = "Run Spring App"
+run = "mvn clean spring-boot:run"
+
+[tasks.docker_run]
+alias = "dw"
+usage = '''
+arg "[arguments]" default = "" help = "Docker Compose extra arguments to run on build"
+'''
+description = "Run Docker Compose Project"
+run = "docker compose up {{usage.arguments}} -d"
+
+[tasks.docker_stop]
+alias = "dt"
+description = "Stop Docker Compose Project"
+run = "docker compose down"
+
+[tasks.documentation]
+hide = true
+description = "Run Documentation File"
+dir = "documentation"
+run = "uv run zensical serve"
