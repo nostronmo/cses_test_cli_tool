@@ -1,4 +1,5 @@
 [tools]
+java = "graalvm"
 maven = "latest"
 
 [env]
@@ -6,34 +7,21 @@ _.file = ".env"
 
 [tasks.test]
 alias = "qa"
-description = "Run Test"
+description = "Run Application Test"
 run = "mvn clean test"
 
 [tasks.build]
 alias = "qs"
-description = "Build the Project Image"
+description = "Build the Project Package"
 run = "mvn clean package -DskipTests"
+
+[tasks.native]
+alias = "qn"
+description = "Build GraalVM Native Binary"
+run = "mvn clean package -Pnative"
 
 [tasks.run]
 alias = "qw"
-description = "Run Spring App"
-run = "mvn clean spring-boot:run"
+description = "Run Application"
+run = "mvn exec:java"
 
-[tasks.docker_run]
-alias = "dw"
-usage = '''
-arg "[arguments]" default = "" help = "Docker Compose extra arguments to run on build"
-'''
-description = "Run Docker Compose Project"
-run = "docker compose up {{usage.arguments}} -d"
-
-[tasks.docker_stop]
-alias = "dt"
-description = "Stop Docker Compose Project"
-run = "docker compose down"
-
-[tasks.documentation]
-hide = true
-description = "Run Documentation File"
-dir = "documentation"
-run = "uv run zensical serve"
