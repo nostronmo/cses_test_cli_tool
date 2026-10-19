@@ -53,9 +53,10 @@ If your folder is named weird_algo, your binary is in ./weird_algo or build/weir
 
 ``` Bash
 java -jar ctooltester-v1.301.jar
+```
+
 2. Custom Arguments
 You can explicitly pass an executable path, test directory, or timeout limit:
-```
 
 ``` Bash
 java -jar ctooltester-v1.301.jar -e build/weird_algo -td tests -tm 2s
